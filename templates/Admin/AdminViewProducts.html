@@ -20,7 +20,7 @@
 
      <div class="container border border-danger rounded shadow-lg p-3 mb-5 bg-white">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12 table-responsive">
                 <table id="booking-table" class="table table-hover">
                     <thead class="text-uppercase">
                         <tr style="color: #D81324;">
@@ -41,7 +41,7 @@
                                 <img src="{{ i.product_image.url }}" alt="Current Image" width="100px" height="auto">
                             </td>
                             <td>{{ i.product_name }}</td>
-                            <td>{{ i.product_details }}</td>
+                            <td class="product-details">{{ i.product_details|truncatewords:5 }}</td>
                             <td>₹{{ i.product_price }}</td>
                             <td>{{ i.quantity }}</td>
                             <td>{{ i.status }}</td>
@@ -60,6 +60,14 @@
                         </tr>
                         {% endfor %}
                     </tbody>
+                    <style>
+                        @media (max-width: 768px) {
+                            .product-details {
+                                font-size: 12px;
+                                word-break: break-word;
+                            }
+                        }
+                    </style>
                 </table>
                 
                 <!-- Delete Confirmation Modal -->
@@ -91,7 +99,7 @@
     
     <!-- Modal -->
     <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="editModalLabel">Edit Product</h5>
@@ -131,7 +139,6 @@
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     </div>
                 </form>
-                
             </div>
         </div>
     </div>

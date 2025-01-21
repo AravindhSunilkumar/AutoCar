@@ -30,32 +30,59 @@
     
         <!-- Template Stylesheet -->
         <link href="{% static 'css/style.css'%}" rel="stylesheet">
+            <!-- CSS -->
+    <style>
+        /* For larger screens, keep the default layout */
+        @media (min-width: 992px) {
+            .topbar {
+                justify-content: center;
+            }
+            .topbar small {
+                font-size: 1rem;
+            }
+        }
+        
+        /* For smaller screens, move cart and wishlist to the right */
+        @media (max-width: 991px) {
+            .topbar {
+                justify-content: space-between;
+            }
+            .topbar div:last-child {
+                margin-left: auto;
+            }
+            .btn-sm-square {
+                margin-right: 0.5rem;
+            }
+            .topbar small {
+                font-size: 0.875rem;
+            }
+        }
+    </style>
     </head>
 <body>
      <!-- Topbar Start -->
      <div class="container-fluid bg-light p-0">
-        <div class="row gx-0 d-none d-lg-flex">
-            <div class="col-lg-7 px-5 text-start">
-                <div class="h-100 d-inline-flex align-items-center py-3 me-4">
-                     <small class="fa fa-map-marker-alt text-primary me-2"></small> 
-                     <small>2nd Floor,CVP Champers,kadavanthara,Cochin - 682020</small>
+        <div class="row gx-0 d-lg-flex">
+            <div class="col-12 d-flex justify-content-between align-items-center px-4 py-3 bg-light topbar">
+                <div class="d-inline-flex align-items-center">
+                    <small class="fa fa-map-marker-alt text-primary me-2"></small> 
+                    <small>2nd Floor, CVP Champers, Kadavanthara, Cochin - 682020</small>
+                    <small class="far fa-clock text-primary ms-4 me-2"></small>
+                    <small>Mon - Sun: 09.00 AM - 09.00 PM</small>
                 </div>
-                <div class="h-100 d-inline-flex align-items-center py-3">
-                    <small class="far fa-clock text-primary me-2"></small>
-                    <small>Mon - Sun : 09.00 AM - 09.00 PM</small>
+                <div class="d-flex align-items-center">
+                    <a class="btn btn-sm-square bg-white text-primary me-1" href="../UserCart">
+                        <img src="{% static './img/cart.png' %}" width="30px" alt="">
+                    </a>
+                    <a class="btn btn-sm-square bg-white text-primary me-1" href="../ViewWishList">
+                        <img src="{% static './img/heart.png' %}" width="30px" alt="">
+                    </a>
                 </div>
-            </div>
-            <div class="col-lg-5 px-5 text-end">
-              
-                
-                <div class="h-100 d-inline-flex align-items-center">
-                  
-                    <a class="btn btn-sm-square bg-white text-primary me-1" href="../UserCart"><img src="{% static './img/cart.png' %}" width="30px" alt=""></i></a>
-                    <a class="btn btn-sm-square bg-white text-primary me-1" href="../ViewWishList"><img src="{% static './img/heart.png' %}" width="30px" alt=""></a>
-                    
             </div>
         </div>
     </div>
+    
+
     <!-- Topbar End -->
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">

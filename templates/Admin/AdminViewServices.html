@@ -22,7 +22,7 @@
 
      <div class="container border border-danger rounded shadow-lg p-3 mb-5 bg-white">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12 table-responsive">
                 <table id="booking-table" class="table table-hover">
                     <thead class="text-uppercase">
                         <tr style="color: #D81324;">
@@ -42,7 +42,7 @@
                                 <img src="{{ i.service_image.url }}" alt="Current Image" width="100px" height="auto">
                             </td>
                             <td>{{ i.service_name }}</td>
-                            <td>{{ i.service_discription }}</td>
+                            <td>{{ i.service_discription|truncatewords:5 }}</td>
                             <td>₹{{ i.service_amount }}</td>
                             <td>{{ i.status }}</td>
                             
